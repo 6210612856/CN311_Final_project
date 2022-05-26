@@ -19,7 +19,7 @@ class Game:
         self.keepLoop = False   
         self.win1 = []  
         self.win2 = []  
-        self.score = [0, 0, 0, 0]  
+        
 
   
     def updateState(self):
@@ -67,36 +67,6 @@ class Game:
             print("Game end!!")
             print("Win in round 1", self.win1)
             print("Win in round 2", self.win2)
-
-            #calculate score
-            point = 2
-            for player in self.win1:
-                if point == 0:
-                    point -= 1
-                self.score[player - 1] += point
-                point -= 1
-            
-            point = 2
-            #if there is an overthrow, King got 0 point
-            if self.win1[0] != self.win2[0]:
-                for player in self.win2:
-                    if point == 0:
-                        point -= 1
-                    if player == self.win1[0]:
-                        self.score[player - 1] = 0
-                    else:
-                        self.score[player - 1] += point
-                        point -= 1
-            #if not, calculate normally
-            else:
-                for player in self.win2:
-                    if point == 0:
-                        point -= 1
-                    self.score[player - 1] += point
-                    point -= 1
-
-            print("Score of each player: ", self.score)
-
         else:
             print("Game state: ", self.state)
             print("Game end!!!")

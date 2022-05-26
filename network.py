@@ -29,7 +29,7 @@ class Network:
 
     def disconnect(self):
         try:
-            self.client.shutdown(4)
+            self.client.shutdown(2)
             self.client.close()
         except:
             pass
